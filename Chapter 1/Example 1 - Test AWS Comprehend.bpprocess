@@ -1,0 +1,258 @@
+﻿<process name="Example 1 - Test AWS Comprehend" version="1.0" bpversion="7.1.2.3518" narrative="This process tests the AWS Comprehend Object and Web API." byrefcollection="true" preferredid="a366675b-2ffc-4011-81ce-b533a34d3f7b">
+  <view>
+    <camerax>4</camerax>
+    <cameray>45</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions>
+    <condition narrative="The AccessID must be set as the username of the &quot;AWS&quot; Credential" />
+    <condition narrative="The SecretKey must be set as the password of the &quot;AWS&quot; Credential" />
+  </preconditions>
+  <endpoint narrative="" />
+  <stage stageid="16f8d3f9-3c47-418f-b735-68f0798f730c" name="Start" type="Start">
+    <display x="15" y="-105" />
+    <onsuccess>2a2cf987-a8fe-4476-bc7b-fd78fb22633e</onsuccess>
+  </stage>
+  <stage stageid="cbde6380-d4b3-44ed-87f7-17c44b9cc4a3" name="End" type="End">
+    <display x="15" y="345" />
+  </stage>
+  <stage stageid="116669a6-bc9c-4c81-ad9c-be4ee1b6641e" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="2a691109-c1c5-4772-bba6-2f39e0d583b1" name="AWS Comprehend::Detect Entities" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="0" w="90" h="30" />
+    <inputs>
+      <input type="text" name="AWSRegion" friendlyname="AWSRegion" expr="[AWS Region]" />
+      <input type="text" name="AccessID" friendlyname="AccessID" expr="[AccessID]" />
+      <input type="password" name="SecretKey" friendlyname="SecretKey" expr="[SecretKey]" />
+      <input type="text" name="InputText" friendlyname="InputText" expr="[Text]" />
+      <input type="text" name="InputLanguageCode" friendlyname="InputLanguageCode" expr="[Language Code]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="HTTP Status Code" friendlyname="HTTP Status Code" stage="Entities HTTP Status Code" />
+      <output type="collection" name="Response Headers" friendlyname="Response Headers" stage="" />
+      <output type="collection" name="Response" friendlyname="Response" stage="Entities Response" />
+      <output type="text" name="Raw Response" friendlyname="Raw Response" stage="" />
+    </outputs>
+    <onsuccess>22f80f57-e6c2-4054-8c0e-9d3393a51a96</onsuccess>
+    <resource object="AWS Comprehend" action="Detect Entities" />
+  </stage>
+  <stage stageid="2a2cf987-a8fe-4476-bc7b-fd78fb22633e" name="Credentials::Get" type="Action">
+    <loginhibit onsuccess="true" />
+    <narrative>Get the specified set of credentials.
+
+An Exception will occur if access to the credentials is not allowed, based on the running Resource, Process and User.</narrative>
+    <display x="15" y="-60" w="90" h="30" />
+    <inputs>
+      <input type="text" name="Credentials Name" friendlyname="Credentials Name" narrative="The name of the credentials to get" expr="[Credential Name]" />
+    </inputs>
+    <outputs>
+      <output type="password" name="Password" friendlyname="Password" narrative="The password" stage="SecretKey" />
+      <output type="text" name="Username" friendlyname="Username" narrative="The user name" stage="AccessID" />
+      <output type="date" name="Expiry Date" friendlyname="Expiry Date" narrative="The expiry date" stage="" />
+      <output type="text" name="Status" friendlyname="Status" narrative="The status" stage="" />
+    </outputs>
+    <onsuccess>2a691109-c1c5-4772-bba6-2f39e0d583b1</onsuccess>
+    <resource object="Blueprism.Automate.clsCredentialsActions" action="Get" />
+  </stage>
+  <stage stageid="6f5a1d08-5bd2-47ce-9420-b00bd7b06112" name="SecretKey" type="Data">
+    <display x="-195" y="45" w="120" h="30" />
+    <datatype>password</datatype>
+    <initialvalueenc>
+    </initialvalueenc>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="33469668-cb47-4bf7-8470-02ee0fc305e9" name="AccessID" type="Data">
+    <display x="-195" y="15" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0afabeba-7c0d-4e64-af30-9302f12f177e" name="AWS Region" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-195" y="120" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">us-east-1</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="89e19eb0-3dbc-439e-a4c7-f1cc56399136" name="Text" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-195" y="225" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">I am writing to request assistance with my iPhone 14, which has a cracked screen. My customer ID is abcd@email.com. I would greatly appreciate your help in resolving this issue. I understand that the device may be covered by a warranty or insurance plan, and I would like to explore all available options for repairing or replacing the phone. If possible, could you please provide me with information on the next steps I should take to initiate a repair or replacement request? Additionally, please let me know if there are any costs associated with this process.</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5e64e994-78d1-4d8a-82f5-4136eb72d79c" name="Entities HTTP Status Code" type="Data">
+    <display x="135" y="0" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f8e831db-590c-411d-b2ee-228af9ace13b" name="AWS Comprehend::Detect Key Phrases" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="120" w="90" h="30" />
+    <inputs>
+      <input type="text" name="AWSRegion" friendlyname="AWSRegion" expr="[AWS Region]" />
+      <input type="text" name="AccessID" friendlyname="AccessID" expr="[AccessID]" />
+      <input type="password" name="SecretKey" friendlyname="SecretKey" expr="[SecretKey]" />
+      <input type="text" name="InputText" friendlyname="InputText" expr="[Text]" />
+      <input type="text" name="InputLanguageCode" friendlyname="InputLanguageCode" expr="[Language Code]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="HTTP Status Code" friendlyname="HTTP Status Code" stage="Key Phrases HTTP Status Code" />
+      <output type="collection" name="Response Headers" friendlyname="Response Headers" stage="" />
+      <output type="collection" name="Response" friendlyname="Response" stage="Key Phrases Response" />
+      <output type="text" name="Raw Response" friendlyname="Raw Response" stage="" />
+    </outputs>
+    <onsuccess>d90f4cf0-5dcc-41ba-8d0e-207d273e0c94</onsuccess>
+    <resource object="AWS Comprehend" action="Detect Key Phrases" />
+  </stage>
+  <stage stageid="73b33523-e8a3-41f9-843d-1256e535f32a" name="Entities Response" type="Collection">
+    <display x="-195" y="300" w="120" h="30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3023b799-f579-4a40-9d92-90c2223aa4b9" name="Key Phrases Response" type="Collection">
+    <display x="-195" y="330" w="120" h="30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6b14ea1d-da84-4b6d-8df2-022c10913e05" name="Key Phrases HTTP Status Code" type="Data">
+    <display x="135" y="120" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="093482cc-3e7a-44d5-9f60-73ee219fcc6a" name="AWS Comprehend::Detect Sentiment" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="240" w="90" h="30" />
+    <inputs>
+      <input type="text" name="AWSRegion" friendlyname="AWSRegion" expr="[AWS Region]" />
+      <input type="text" name="AccessID" friendlyname="AccessID" expr="[AccessID]" />
+      <input type="password" name="SecretKey" friendlyname="SecretKey" expr="[SecretKey]" />
+      <input type="text" name="InputText" friendlyname="InputText" expr="[Text]" />
+      <input type="text" name="InputLanguageCode" friendlyname="InputLanguageCode" expr="[Language Code]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="HTTP Status Code" friendlyname="HTTP Status Code" stage="Sentiment HTTP Status Code" />
+      <output type="collection" name="Response Headers" friendlyname="Response Headers" stage="" />
+      <output type="collection" name="Response" friendlyname="Response" stage="Sentiment Response" />
+      <output type="text" name="Raw Response" friendlyname="Raw Response" stage="" />
+    </outputs>
+    <onsuccess>f0c90e7e-f7c1-4802-a69f-7cb8f8372b7c</onsuccess>
+    <resource object="AWS Comprehend" action="Detect Sentiment" />
+  </stage>
+  <stage stageid="03b7efa3-2100-42b4-b82e-7c9bf278042d" name="Sentiment Response" type="Collection">
+    <display x="-195" y="360" w="120" h="30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="334b7287-d744-48df-9d3f-67f0d6b81348" name="Sentiment HTTP Status Code" type="Data">
+    <display x="135" y="240" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3974939e-5f18-4dc3-9bb7-e5f7ee78e390" name="Language Code" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="-195" y="150" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">en</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ccc465dd-35a2-4315-91f0-59976f55424a" name="Entities" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-45" y="-30" w="120" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="5293344b-64a6-48c7-9838-5fc339a952b0" name="Key Phrases" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-45" y="90" w="120" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="e9f9358b-c2c4-47de-9df0-d6104d223fdb" name="Sentiment" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-45" y="210" w="120" h="105" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="22f80f57-e6c2-4054-8c0e-9d3393a51a96" name="Status = 200?" type="Decision">
+    <display x="15" y="45" />
+    <decision expression="[Entities HTTP Status Code] = &quot;200&quot;" />
+    <ontrue>f8e831db-590c-411d-b2ee-228af9ace13b</ontrue>
+    <onfalse>130052d7-27fd-4a00-8631-5af2c1699bb4</onfalse>
+  </stage>
+  <stage stageid="130052d7-27fd-4a00-8631-5af2c1699bb4" name="SE - Detect Entities Web API Request Unsuccessful" type="Exception">
+    <display x="135" y="45" w="90" h="30" />
+    <exception localized="yes" type="System Exception" detail="&quot;SE - Detect Entities Web API Request Unsuccessful: HTTP Status Code: &quot; &amp; [Entities HTTP Status Code] &amp; &quot; received&quot;" />
+  </stage>
+  <stage stageid="d90f4cf0-5dcc-41ba-8d0e-207d273e0c94" name="Status = 200?" type="Decision">
+    <display x="15" y="165" />
+    <decision expression="[Key Phrases HTTP Status Code] = &quot;200&quot;" />
+    <ontrue>093482cc-3e7a-44d5-9f60-73ee219fcc6a</ontrue>
+    <onfalse>bb4cfcae-cef4-4a9b-a352-0cee6d24d080</onfalse>
+  </stage>
+  <stage stageid="bb4cfcae-cef4-4a9b-a352-0cee6d24d080" name="SE - Key Phrases Web API Request Unsuccessful" type="Exception">
+    <display x="135" y="165" w="90" h="30" />
+    <exception localized="yes" type="System Exception" detail="&quot;SE - Key Phrases Web API Request Unsuccessful: HTTP Status Code: &quot; &amp; [Entities HTTP Status Code] &amp; &quot; received&quot;" />
+  </stage>
+  <stage stageid="f0c90e7e-f7c1-4802-a69f-7cb8f8372b7c" name="Status = 200?" type="Decision">
+    <display x="15" y="285" />
+    <decision expression="[Sentiment HTTP Status Code] = &quot;200&quot;" />
+    <ontrue>cbde6380-d4b3-44ed-87f7-17c44b9cc4a3</ontrue>
+    <onfalse>445d2da4-cbbb-4861-b78f-c9c901d0eb14</onfalse>
+  </stage>
+  <stage stageid="445d2da4-cbbb-4861-b78f-c9c901d0eb14" name="SE - Sentiment Web API Request Unsuccessful" type="Exception">
+    <display x="135" y="285" w="90" h="30" />
+    <exception localized="yes" type="System Exception" detail="&quot;SE - Sentiment Web API Request Unsuccessful: HTTP Status Code: &quot; &amp; [Entities HTTP Status Code] &amp; &quot; received&quot;" />
+  </stage>
+  <stage stageid="d8d16942-b29f-43f5-8ad0-b423d13f91cf" name="Predictions" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-270" y="270" w="150" h="120" />
+    <font family="Segoe UI" size="10" style="Regular" color="C0C0C0" />
+  </stage>
+  <stage stageid="56edf56f-db97-4166-8f4a-ff7380a15d15" name="Support Email Text" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-270" y="195" w="150" h="60" />
+    <font family="Segoe UI" size="10" style="Regular" color="FFCC00" />
+  </stage>
+  <stage stageid="de901e34-e520-46b3-b62c-6c170b52814b" name="Credentials" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-270" y="-45" w="150" h="120" />
+    <font family="Segoe UI" size="10" style="Regular" color="00FF00" />
+  </stage>
+  <stage stageid="4d3ea3aa-e882-458d-a7ca-0f46b8c73f9c" name="AWS Inputs" type="Block">
+    <loginhibit onsuccess="true" />
+    <display x="-270" y="90" w="150" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="FF99CC" />
+  </stage>
+  <stage stageid="b34c8d57-d832-4ddd-be8e-ad577be320aa" name="Credential Name" type="Data">
+    <display x="-195" y="-15" w="120" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">AWS</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d910c005-570f-40e7-baa4-f098b3da0cea" name="Note1" type="Note">
+    <narrative>We are using the Object Action, not the Web API Services Action. The Object is a wrapper around the Web API which contains code to handle the Access Token refresh needed for Authentication</narrative>
+    <display x="165" y="-75" w="150" h="90" />
+    <font family="Segoe UI" size="10" style="Bold" color="000000" />
+    <onsuccess>2a691109-c1c5-4772-bba6-2f39e0d583b1</onsuccess>
+  </stage>
+  <stage stageid="5c87e939-307d-4ed6-a51e-463ebd9b380b" name="Note2" type="Note">
+    <narrative>The Status is returned as Text, not Number</narrative>
+    <display x="255" y="0" w="120" h="30" />
+    <font family="Segoe UI" size="10" style="Bold" color="000000" />
+  </stage>
+</process>
