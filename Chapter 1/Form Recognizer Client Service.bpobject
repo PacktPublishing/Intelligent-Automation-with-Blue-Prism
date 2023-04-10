@@ -323,7 +323,7 @@ You will not be able to call this action from a business process, nor will it be
     <initialvalue>
       <singlerow />
       <row>
-        <field name="Ocp-Apim-Subscription-Key" type="password" encvalue="aCpGKl8qTyp6KlgqQypZKkcqBCppKkUqRypHKkUqRCoEKnkqTypJKl8qWCpDKl4qUyoEKnkqQypHKloqRipPKmUqSCpMKl8qWSpJKksqXipFKlgq:SyodKh4qTypMKhgqGyoYKhsqEypOKhIqHioZKhMqHCoSKhwqEioaKh0qHCpJKkwqTypJKhgqHyoeKk4qHSoYKg==" />
+        <field name="Ocp-Apim-Subscription-Key" type="password" encvalue="aCpGKl8qTyp6KlgqQypZKkcqBCppKkUqRypHKkUqRCoEKnkqTypJKl8qWCpDKl4qUyoEKnkqQypHKloqRipPKmUqSCpMKl8qWSpJKksqXipFKlgq:" />
       </row>
     </initialvalue>
   </stage>
@@ -343,7 +343,7 @@ https://digitalexchange.blueprism.com/fileMedia/download/a9111324-3192-43ff-9166
     <loginhibit />
     <display x="300" y="-90" w="120" h="30" />
     <datatype>text</datatype>
-    <initialvalue xml:space="preserve">https://bpipa-form-recognizer.cognitiveservices.azure.com</initialvalue>
+    <initialvalue />
     <alwaysinit />
   </stage>
   <stage stageid="0fde2267-ba6a-4248-9aed-80c0f53defee" name="FileMetadata" type="Collection">
