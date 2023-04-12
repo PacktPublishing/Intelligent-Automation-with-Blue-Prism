@@ -1,23 +1,23 @@
-﻿<process name="Example 2 - Test Azure Form Recognizer Client Service" version="1.0" bpversion="7.1.2.3518" narrative="This process is used to test the Azure Form Recognizer API, using the pre-built Invoice model. A sample PDF invoice is saved in this process as a Binary Data Item, which will be written to disk in C:\Users\Public\ch1_invoice.pdf. This file will be deleted afterwards." byrefcollection="true" preferredid="f1f9e8fe-e996-4b2b-82be-0ab19e45307f">
+﻿<process name="Example 2 - Test Azure Form Recognizer Client Service" version="1.0" bpversion="7.1.2.3518" narrative="This process is used to test the Azure Form Recognizer API, using the pre-built Invoice model. A sample PDF invoice is saved in this process as a Binary Data Item, which will be written to disk in C:\Users\Public\ch1_invoice.pdf. This file will be deleted afterwards." byrefcollection="true" preferredid="f1f9e8fe-e996-4b2b-82be-0ab19e45307f" published="true">
   <view>
-    <camerax>111</camerax>
-    <cameray>303</cameray>
+    <camerax>253</camerax>
+    <cameray>54</cameray>
     <zoom version="2">1.25</zoom>
   </view>
   <preconditions />
   <endpoint narrative="" />
   <stage stageid="bd0135db-0c12-4267-9abb-3afe1edfa2ed" name="Start" type="Start">
-    <display x="15" y="-105" />
+    <display x="60" y="-90" />
     <onsuccess>56ca21ac-b179-41d2-ac42-87558489c26b</onsuccess>
   </stage>
   <stage stageid="4311b895-f0dc-4398-893e-d5c5392c2ed5" name="Stage1" type="ProcessInfo">
-    <display x="-195" y="-105" w="150" h="90" />
+    <display x="-195" y="-135" w="210" h="120" />
   </stage>
   <stage stageid="61962134-1f9d-48d9-b0d1-51088519e4ee" name="Form Recognizer Client Service::Analyze Invoice Async" type="Action">
     <loginhibit onsuccess="true" />
-    <display x="15" y="75" w="90" h="30" />
+    <display x="60" y="150" w="90" h="30" />
     <inputs>
-      <input type="text" name="FilePath" friendlyname="FilePath" narrative="The path of the file" expr="[Invoice File Path]" />
+      <input type="text" name="FilePath" friendlyname="FilePath" narrative="The path of the file" expr="[Input File Path]" />
     </inputs>
     <outputs>
       <output type="flag" name="Success" friendlyname="Success" narrative="A flag indicating the success or failure of the action." stage="Success" />
@@ -27,7 +27,7 @@
     <onsuccess>2143552d-75a8-4def-89a0-ba8860ad25f6</onsuccess>
     <resource object="Form Recognizer Client Service" action="Analyze Invoice Async" />
   </stage>
-  <stage stageid="21257145-4f11-4e94-8843-5c3ea650e17a" name="Invoice File Path" type="Data">
+  <stage stageid="21257145-4f11-4e94-8843-5c3ea650e17a" name="Input File Path" type="Data">
     <loginhibit onsuccess="true" />
     <display x="-195" y="30" w="120" h="30" />
     <datatype>text</datatype>
@@ -36,21 +36,21 @@
     <alwaysinit />
   </stage>
   <stage stageid="1a1bd398-3060-46b7-b5c4-7058a3b3b1a3" name="Success" type="Data">
-    <display x="195" y="75" />
+    <display x="240" y="150" />
     <datatype>flag</datatype>
     <initialvalue />
     <private />
     <alwaysinit />
   </stage>
   <stage stageid="34bf314d-1070-461f-adee-00f68c8de608" name="Response Message" type="Data">
-    <display x="315" y="75" />
+    <display x="360" y="150" />
     <datatype>text</datatype>
     <initialvalue />
     <private />
     <alwaysinit />
   </stage>
   <stage stageid="cedfefb6-f294-436b-82a2-89661fb7eef2" name="Result ID" type="Data">
-    <display x="255" y="75" />
+    <display x="300" y="150" />
     <datatype>text</datatype>
     <initialvalue />
     <private />
@@ -61,7 +61,7 @@
     <display x="-270" y="0" w="150" h="60" />
     <font family="Segoe UI" size="10" style="Regular" color="33CCCC" />
   </stage>
-  <stage stageid="d1580ef7-a7d7-4ec4-a4b3-ac51256014da" name="Invoice PDF Binary" type="Data">
+  <stage stageid="d1580ef7-a7d7-4ec4-a4b3-ac51256014da" name="PDF Binary" type="Data">
     <loginhibit onsuccess="true" />
     <display x="-195" y="-30" w="120" h="30" />
     <datatype>binary</datatype>
@@ -71,27 +71,27 @@
   </stage>
   <stage stageid="56ca21ac-b179-41d2-ac42-87558489c26b" name="Utility - File Management::Write Binary Data" type="Action">
     <loginhibit onsuccess="true" />
-    <display x="15" y="-45" w="90" h="30" />
+    <display x="60" y="-30" w="90" h="30" />
     <inputs>
-      <input type="text" name="File Name" friendlyname="File Name" narrative="The full path of the file to write to" expr="[Invoice File Path]" />
-      <input type="binary" name="Binary Data" friendlyname="Binary Data" narrative="The data to write to the file" expr="[Invoice PDF Binary]" />
+      <input type="text" name="File Name" friendlyname="File Name" narrative="The full path of the file to write to" expr="[Input File Path]" />
+      <input type="binary" name="Binary Data" friendlyname="Binary Data" narrative="The data to write to the file" expr="[PDF Binary]" />
     </inputs>
     <outputs>
       <output type="flag" name="Success" friendlyname="Success" narrative="True if successful" stage="File Write Success" />
       <output type="text" name="Message" friendlyname="Message" narrative="An error message if unsuccessful" stage="File Write Message" />
     </outputs>
-    <onsuccess>88f5dfad-497a-4a7a-a3cc-028f977d1a0e</onsuccess>
+    <onsuccess>eb1f456a-7bf9-4a83-8c80-9ee94a417faa</onsuccess>
     <resource object="Utility - File Management" action="Write Binary Data" />
   </stage>
   <stage stageid="98ddf07a-6dc4-4556-aa89-2c4ea23fd6af" name="File Write Message" type="Data">
-    <display x="255" y="-45" />
+    <display x="300" y="-30" />
     <datatype>text</datatype>
     <initialvalue />
     <private />
     <alwaysinit />
   </stage>
   <stage stageid="5fbb77fa-ed3b-4b19-8f0c-75262ed1ab5a" name="File Write Success" type="Data">
-    <display x="195" y="-45" />
+    <display x="240" y="-30" />
     <datatype>flag</datatype>
     <initialvalue />
     <private />
@@ -99,12 +99,12 @@
   </stage>
   <stage stageid="b654cd37-a59f-4470-8127-57d7ad99c295" name="Save PDF to Disk" type="Block">
     <loginhibit onsuccess="true" />
-    <display x="-45" y="-75" w="195" h="60" />
+    <display x="0" y="-60" w="195" h="105" />
     <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
   </stage>
   <stage stageid="32e2ccf0-1865-4848-84de-48da0b3a9dde" name="Call Async Web API" type="Block">
     <loginhibit onsuccess="true" />
-    <display x="-45" y="0" w="195" h="150" />
+    <display x="0" y="75" w="195" h="150" />
     <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
   </stage>
   <stage stageid="07f42261-3a5e-49e6-97fb-0b6907dea09a" name="Max Wait Seconds" type="Data">
@@ -117,7 +117,7 @@
   </stage>
   <stage stageid="7fffbda7-9a88-4367-898c-4e9df150900a" name="Utility - General::Sleep" type="Action">
     <loginhibit onsuccess="true" />
-    <display x="15" y="270" />
+    <display x="60" y="345" />
     <inputs>
       <input type="number" name="Sleep Time (Seconds)" friendlyname="Sleep Time (Seconds)" narrative="The time (in seconds) for which to sleep" expr="5" />
     </inputs>
@@ -126,7 +126,7 @@
   </stage>
   <stage stageid="c5e3ec10-c8fb-4a3c-9b14-a71fe48bf595" name="Form Recognizer Client Service::Get Analyze Invoice Result" type="Action">
     <loginhibit onsuccess="true" />
-    <display x="15" y="360" w="90" h="30" />
+    <display x="60" y="435" w="90" h="30" />
     <inputs>
       <input type="text" name="resultId" friendlyname="resultId" narrative="Analyze operation result identifier." expr="[Result ID]" />
     </inputs>
@@ -147,7 +147,7 @@
   </stage>
   <stage stageid="9f4b6488-4038-49be-b2fc-5e1af20cbd6e" name="Current Wait Seconds" type="Calculation">
     <loginhibit onsuccess="true" />
-    <display x="15" y="315" />
+    <display x="60" y="390" />
     <onsuccess>c5e3ec10-c8fb-4a3c-9b14-a71fe48bf595</onsuccess>
     <calculation expression="[Current Wait Seconds] + 5" stage="Current Wait Seconds" />
   </stage>
@@ -204,11 +204,11 @@
   </stage>
   <stage stageid="60acb14d-2adb-45f4-ab6e-5a121f91a547" name="Get Invoice Extraction Result" type="Block">
     <loginhibit onsuccess="true" />
-    <display x="-45" y="210" w="195" h="270" />
+    <display x="0" y="285" w="195" h="270" />
     <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
   </stage>
   <stage stageid="2f367dc0-d704-4001-b9fa-0467174f331c" name="Operation status" type="Data">
-    <display x="195" y="360" />
+    <display x="240" y="435" />
     <datatype>text</datatype>
     <initialvalue />
     <private />
@@ -220,35 +220,35 @@
     <font family="Segoe UI" size="10" style="Regular" color="C0C0C0" />
   </stage>
   <stage stageid="2143552d-75a8-4def-89a0-ba8860ad25f6" name="Call Success?" type="Decision">
-    <display x="15" y="120" />
+    <display x="60" y="195" />
     <decision expression="[Success]" />
     <ontrue>1846ae2d-1a32-4613-a28b-d18514390418</ontrue>
     <onfalse>82003953-7a78-4879-a3e2-877f5c87a3be</onfalse>
   </stage>
   <stage stageid="e16639b4-1755-4251-a5c8-4110500852cc" name="SE - Form Recognizer Invoice Request Failed" type="Exception">
-    <display x="285" y="120" w="90" h="30" />
-    <exception localized="yes" type="System Exception" detail="&quot;SE - Form Recognizer Invoice Request Failed: &quot; &amp; [Response Message] &amp; &quot;. Delete File: &quot; &amp; [Invoice File Path] &amp; &quot; success = &quot; &amp; [Delete File Success]" />
+    <display x="330" y="195" w="90" h="30" />
+    <exception localized="yes" type="System Exception" detail="&quot;SE - Form Recognizer Invoice Request Failed: &quot; &amp; [Response Message] &amp; &quot;. Delete File: &quot; &amp; [Input File Path] &amp; &quot; success = &quot; &amp; [Delete File Success]" />
   </stage>
   <stage stageid="1846ae2d-1a32-4613-a28b-d18514390418" name="Reset Current Wait Seconds" type="Calculation">
     <loginhibit onsuccess="true" />
-    <display x="15" y="180" />
+    <display x="60" y="255" />
     <onsuccess>0d471b54-59a9-43d1-86f2-30597214b98f</onsuccess>
     <calculation expression="0" stage="Current Wait Seconds" />
   </stage>
   <stage stageid="82003953-7a78-4879-a3e2-877f5c87a3be" name="Retry?" type="Decision">
-    <display x="105" y="120" />
+    <display x="150" y="195" />
     <decision expression="[Current Wait Seconds] &gt; [Max Wait Seconds]" />
     <ontrue>0f5dd708-e0fb-4a7b-8829-8864d452ad7b</ontrue>
     <onfalse>78fdce18-7c29-4ae8-a234-40f81420171f</onfalse>
   </stage>
   <stage stageid="88f5dfad-497a-4a7a-a3cc-028f977d1a0e" name="Anchor1" type="Anchor">
     <loginhibit onsuccess="true" />
-    <display x="15" y="30" w="10" h="10" />
+    <display x="60" y="105" w="10" h="10" />
     <onsuccess>61962134-1f9d-48d9-b0d1-51088519e4ee</onsuccess>
   </stage>
   <stage stageid="0f5dd708-e0fb-4a7b-8829-8864d452ad7b" name="Utility - General::Sleep" type="Action">
     <loginhibit onsuccess="true" />
-    <display x="105" y="75" />
+    <display x="150" y="150" />
     <inputs>
       <input type="number" name="Sleep Time (Seconds)" friendlyname="Sleep Time (Seconds)" narrative="The time (in seconds) for which to sleep" expr="5" />
     </inputs>
@@ -257,7 +257,7 @@
   </stage>
   <stage stageid="ffe252dd-b554-49d7-824a-54a0fa75af0a" name="Current Wait Seconds" type="Calculation">
     <loginhibit onsuccess="true" />
-    <display x="105" y="30" />
+    <display x="150" y="105" />
     <onsuccess>88f5dfad-497a-4a7a-a3cc-028f977d1a0e</onsuccess>
     <calculation expression="[Current Wait Seconds] + 5" stage="Current Wait Seconds" />
   </stage>
@@ -268,9 +268,9 @@
   </stage>
   <stage stageid="78fdce18-7c29-4ae8-a234-40f81420171f" name="Utility - File Management::Delete File" type="Action">
     <loginhibit onsuccess="true" />
-    <display x="195" y="120" />
+    <display x="240" y="195" />
     <inputs>
-      <input type="text" name="File Name" friendlyname="File Name" narrative="The full path to the file to delete" expr="" />
+      <input type="text" name="File Name" friendlyname="File Name" narrative="The full path to the file to delete" expr="[Input File Path]" />
     </inputs>
     <outputs>
       <output type="flag" name="Success" friendlyname="Success" narrative="True if successful" stage="Delete File Success" />
@@ -280,14 +280,14 @@
     <resource object="Utility - File Management" action="Delete File" />
   </stage>
   <stage stageid="ea486fba-13c8-43d3-a3f8-9107761e53d2" name="Delete File Success" type="Data">
-    <display x="435" y="120" />
+    <display x="480" y="195" />
     <datatype>flag</datatype>
     <initialvalue />
     <private />
     <alwaysinit />
   </stage>
   <stage stageid="62e2a3dc-3037-46ed-8c63-f650bf31b9ef" name="Delete File Message" type="Data">
-    <display x="375" y="120" />
+    <display x="420" y="195" />
     <datatype>text</datatype>
     <initialvalue />
     <private />
@@ -295,45 +295,45 @@
   </stage>
   <stage stageid="695c0636-83f8-450b-bbde-fede8887cad9" name="End1" type="End">
     <loginhibit onsuccess="true" />
-    <display x="15" y="555" />
+    <display x="60" y="630" />
   </stage>
   <stage stageid="bdda0b7d-9fcd-437e-9aed-8dde21b8376d" name="Finished Working?" type="Decision">
-    <display x="15" y="450" />
+    <display x="60" y="525" />
     <decision expression="[Operation status] = &quot;succeeded&quot;" />
     <ontrue>56d43252-11f4-4bfb-87c9-0a0b0ddf5ba2</ontrue>
     <onfalse>6fc59b06-b6d5-4f7b-ac8c-a226c1d3c746</onfalse>
   </stage>
   <stage stageid="0d471b54-59a9-43d1-86f2-30597214b98f" name="Anchor2" type="Anchor">
     <loginhibit onsuccess="true" />
-    <display x="15" y="240" w="10" h="10" />
+    <display x="60" y="315" w="10" h="10" />
     <onsuccess>7fffbda7-9a88-4367-898c-4e9df150900a</onsuccess>
   </stage>
   <stage stageid="28ab171a-05dd-455f-98b4-8e84d24a5144" name="Retry?" type="Decision">
-    <display x="105" y="405" />
+    <display x="150" y="480" />
     <decision expression="[Current Wait Seconds] &gt; [Max Wait Seconds]" />
     <ontrue>91d78a81-4c06-4286-8ffa-fd3acd8e8382</ontrue>
     <onfalse>3ae18b48-335d-4571-a6a1-fa6f011bd8bf</onfalse>
   </stage>
   <stage stageid="54250a19-0312-489b-a26b-46f976eca08b" name="Call Success?" type="Decision">
-    <display x="15" y="405" />
+    <display x="60" y="480" />
     <decision expression="[Success]" />
     <ontrue>bdda0b7d-9fcd-437e-9aed-8dde21b8376d</ontrue>
     <onfalse>28ab171a-05dd-455f-98b4-8e84d24a5144</onfalse>
   </stage>
   <stage stageid="91d78a81-4c06-4286-8ffa-fd3acd8e8382" name="Anchor4" type="Anchor">
     <loginhibit onsuccess="true" />
-    <display x="105" y="240" w="10" h="10" />
+    <display x="150" y="315" w="10" h="10" />
     <onsuccess>0d471b54-59a9-43d1-86f2-30597214b98f</onsuccess>
   </stage>
   <stage stageid="0f4134f7-e918-4fc3-bee2-1119db5a8e30" name="SE - Form Recognizer Get Invoice Result Failed" type="Exception">
-    <display x="285" y="405" w="90" h="30" />
-    <exception localized="yes" type="System Exception" detail="&quot;SE - Form Recognizer Get Invoice Result Failed: &quot; &amp; [Response Message] &amp; &quot;. Delete File: &quot; &amp; [Invoice File Path] &amp; &quot; success = &quot; &amp; [Delete File Success]" />
+    <display x="330" y="480" w="90" h="30" />
+    <exception localized="yes" type="System Exception" detail="&quot;SE - Form Recognizer Get Invoice Result Failed: &quot; &amp; [Response Message] &amp; &quot;. Delete File: &quot; &amp; [Input File Path] &amp; &quot; success = &quot; &amp; [Delete File Success]" />
   </stage>
   <stage stageid="3ae18b48-335d-4571-a6a1-fa6f011bd8bf" name="Utility - File Management::Delete File" type="Action">
     <loginhibit onsuccess="true" />
-    <display x="195" y="405" />
+    <display x="240" y="480" />
     <inputs>
-      <input type="text" name="File Name" friendlyname="File Name" narrative="The full path to the file to delete" expr="" />
+      <input type="text" name="File Name" friendlyname="File Name" narrative="The full path to the file to delete" expr="[Input File Path]" />
     </inputs>
     <outputs>
       <output type="flag" name="Success" friendlyname="Success" narrative="True if successful" stage="Delete File Success" />
@@ -344,14 +344,14 @@
   </stage>
   <stage stageid="6fc59b06-b6d5-4f7b-ac8c-a226c1d3c746" name="Anchor3" type="Anchor">
     <loginhibit onsuccess="true" />
-    <display x="105" y="450" w="10" h="10" />
+    <display x="150" y="525" w="10" h="10" />
     <onsuccess>28ab171a-05dd-455f-98b4-8e84d24a5144</onsuccess>
   </stage>
   <stage stageid="56d43252-11f4-4bfb-87c9-0a0b0ddf5ba2" name="Utility - File Management::Delete File" type="Action">
     <loginhibit onsuccess="true" />
-    <display x="15" y="510" />
+    <display x="60" y="585" />
     <inputs>
-      <input type="text" name="File Name" friendlyname="File Name" narrative="The full path to the file to delete" expr="" />
+      <input type="text" name="File Name" friendlyname="File Name" narrative="The full path to the file to delete" expr="[Input File Path]" />
     </inputs>
     <outputs>
       <output type="flag" name="Success" friendlyname="Success" narrative="True if successful" stage="Delete File Success" />
@@ -362,18 +362,34 @@
   </stage>
   <stage stageid="557ba901-4e29-4fd1-b8ca-540555a308d5" name="Note1" type="Note">
     <narrative>The Invoice PDF is embedded in this file as a Binary Data Item</narrative>
-    <display x="-345" y="30" w="120" h="60" />
+    <display x="-345" y="-15" w="120" h="60" />
     <font family="Segoe UI" size="10" style="Bold" color="000000" />
   </stage>
   <stage stageid="6bc6150e-6267-4c24-9521-ef7463a25e39" name="Note2" type="Note">
     <narrative>The Binary Data Item is saved to disk</narrative>
-    <display x="135" y="-105" w="90" h="30" />
+    <display x="-60" y="-30" w="90" h="60" />
     <font family="Segoe UI" size="10" style="Bold" color="000000" />
     <onsuccess>56ca21ac-b179-41d2-ac42-87558489c26b</onsuccess>
   </stage>
   <stage stageid="3f798bed-be61-4921-890f-358b9c822499" name="Note3" type="Note">
-    <narrative>Async call</narrative>
-    <display x="-75" y="180" />
+    <narrative>Single, Async API Calls</narrative>
+    <display x="-60" y="180" w="90" h="60" />
+    <font family="Segoe UI" size="10" style="Bold" color="000000" />
+    <onsuccess>61962134-1f9d-48d9-b0d1-51088519e4ee</onsuccess>
+  </stage>
+  <stage stageid="eb1f456a-7bf9-4a83-8c80-9ee94a417faa" name="File Write Success?" type="Decision">
+    <display x="60" y="15" />
+    <decision expression="[File Write Success]" />
+    <ontrue>88f5dfad-497a-4a7a-a3cc-028f977d1a0e</ontrue>
+    <onfalse>b09dbfba-8350-410d-a6aa-9f8757240a0a</onfalse>
+  </stage>
+  <stage stageid="b09dbfba-8350-410d-a6aa-9f8757240a0a" name="SE - File Write Failed" type="Exception">
+    <display x="255" y="15" w="90" h="30" />
+    <exception localized="yes" type="System Exception" detail="&quot;SE - File Write Failed: &quot; &amp; [File Write Message]" />
+  </stage>
+  <stage stageid="4208eb18-a3d2-4143-b964-d0de5de10abb" name="Note4" type="Note">
+    <narrative>Ensure that the Data Items on the Object's Initialize Page have been configured</narrative>
+    <display x="-60" y="90" w="90" h="90" />
     <font family="Segoe UI" size="10" style="Bold" color="000000" />
     <onsuccess>61962134-1f9d-48d9-b0d1-51088519e4ee</onsuccess>
   </stage>
