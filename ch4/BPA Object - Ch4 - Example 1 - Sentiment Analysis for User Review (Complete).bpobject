@@ -1,0 +1,121 @@
+﻿<process name="Ch4 - Example 1 - Sentiment Analysis for User Review (Complete)" version="1.0" bpversion="7.1.2.3518" narrative="This completed example contains the External References and Namespace Imports. The .dll files should have already been copied into the BP installation folder location, which is (by default) C:\Program Files\Blue Prism Limited\Blue Prism Automate " byrefcollection="true" type="object" runmode="Exclusive" preferredid="7899b27f-29ad-4da2-8b52-b6a8eff1c3a9">
+  <appdef>
+    <element name="Application Root">
+      <id>2d9ce6c4-3969-4de7-ad39-61fb6df0f420</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>-63</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="fbdd9acc-6eeb-4fc4-94b8-299c3331dc4e" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="85521401-138e-41f9-8377-0dfca09e6d99" type="Normal" published="False">
+    <name>Action 1</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="98bb93b2-25c2-44a3-a475-e99a0a494c4e" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>eaac7639-37f4-424e-91bd-de71420b8aa9</onsuccess>
+  </stage>
+  <stage stageid="eaac7639-37f4-424e-91bd-de71420b8aa9" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="2240bf5d-d6b9-4975-bda2-9133b215a45f" name="Stage1" type="ProcessInfo">
+    <display x="-180" y="-150" w="180" h="150" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+      <reference>Microsoft.ML.dll</reference>
+      <reference>Microsoft.ML.Data.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+      <import>Microsoft.ML</import>
+      <import>Microsoft.ML.Data</import>
+    </imports>
+    <language>csharp</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="3c51e512-d582-44a5-8932-cafeb977564f" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>fbdd9acc-6eeb-4fc4-94b8-299c3331dc4e</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="16405a78-d82b-4f5f-9d12-c6df27a8acca" name="Start" type="Start">
+    <subsheetid>fbdd9acc-6eeb-4fc4-94b8-299c3331dc4e</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>8bddef7c-1437-45d8-9010-11afcff5ed9b</onsuccess>
+  </stage>
+  <stage stageid="8bddef7c-1437-45d8-9010-11afcff5ed9b" name="End" type="End">
+    <subsheetid>fbdd9acc-6eeb-4fc4-94b8-299c3331dc4e</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="054141ab-fe2c-4281-970b-b6878999b3e5" name="Action 1" type="SubSheetInfo">
+    <subsheetid>85521401-138e-41f9-8377-0dfca09e6d99</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="eb65d832-eb6c-4dd2-830b-247b3e7eda64" name="Start" type="Start">
+    <subsheetid>85521401-138e-41f9-8377-0dfca09e6d99</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>d2ade4f3-5f04-4d81-91bd-a9cc7e8ac6a6</onsuccess>
+  </stage>
+  <stage stageid="d2ade4f3-5f04-4d81-91bd-a9cc7e8ac6a6" name="End" type="End">
+    <subsheetid>85521401-138e-41f9-8377-0dfca09e6d99</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="884841ce-4d64-4e9d-917b-6c40a2e3232e" name="" type="Note">
+    <subsheetid>fbdd9acc-6eeb-4fc4-94b8-299c3331dc4e</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="aac42e3e-3e4b-4722-8303-0e68a52b5283" name="" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="d072faeb-2cea-4e54-a89a-56d9aadf4108" name="Note1" type="Note">
+    <loginhibit />
+    <narrative>Double click the box to the left to open the Object properties</narrative>
+    <display x="15" y="-165" w="150" h="60" />
+    <font family="Segoe UI" size="10" style="Bold" color="000000" />
+  </stage>
+</process>
