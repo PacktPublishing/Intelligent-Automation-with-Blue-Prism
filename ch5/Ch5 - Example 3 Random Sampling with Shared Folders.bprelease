@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <bpr:release xmlns:bpr="http://www.blueprism.co.uk/product/release">
-    <bpr:name>1.2</bpr:name>
-    <bpr:release-notes />
-    <bpr:created>2023-07-01 12:35:06Z</bpr:created>
+    <bpr:name>1.3</bpr:name>
+    <bpr:release-notes>Change sampling rate to 33.33</bpr:release-notes>
+    <bpr:created>2023-07-02 03:02:20Z</bpr:created>
     <bpr:package-id>4015</bpr:package-id>
     <bpr:package-name>Ch5 - Example 3 Random Sampling with Shared Folders</bpr:package-name>
     <bpr:user-created-by>admin</bpr:user-created-by>
@@ -45,7 +45,7 @@ This action will also reset the Attempts column to zero, because if the status u
         <environment-variable id="Ch5 Example 3 Completed Review Folder Path" name="Ch5 Example 3 Completed Review Folder Path" type="text" value="C:\Users\Public\Ch5\Completed_Review" xmlns="http://www.blueprism.co.uk/product/environment-variable">
             <description>The folder where items that have been reviewed are saved</description>
         </environment-variable>
-        <environment-variable id="Ch5 Example 3 Random Sampling Target" name="Ch5 Example 3 Random Sampling Target" type="number" value="0" xmlns="http://www.blueprism.co.uk/product/environment-variable">
+        <environment-variable id="Ch5 Example 3 Random Sampling Target" name="Ch5 Example 3 Random Sampling Target" type="number" value="33.33" xmlns="http://www.blueprism.co.uk/product/environment-variable">
             <description>The percentage of ML predictions that should be manually reviewed</description>
         </environment-variable>
         <environment-variable id="Ch5 Example 3 Review Batch Size" name="Ch5 Example 3 Review Batch Size" type="number" value="5" xmlns="http://www.blueprism.co.uk/product/environment-variable">
