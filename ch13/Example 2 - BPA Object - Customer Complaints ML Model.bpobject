@@ -1,0 +1,173 @@
+﻿<process name="Customer Complaints ML Model" version="1.0" bpversion="7.1.2.3518" narrative="" byrefcollection="true" type="object" runmode="Exclusive" preferredid="429a23d7-4f1e-4712-bbc1-607f043184ea">
+  <appdef>
+    <element name="Application Root">
+      <id>d59e2bc5-79b2-4a3e-905b-c4e882fd5d82</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>21</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="25c76f53-556e-4b58-951c-4499dabfbf44" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="86983bf2-36c9-4ec1-8a1d-a3d20ae578e6" type="Normal" published="True">
+    <name>Get Customer Prediction</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="edaa52aa-3ffe-4306-897b-f1a7d216cf11" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>2463a968-9f1f-4df1-b06c-abe0d15f1af6</onsuccess>
+  </stage>
+  <stage stageid="2463a968-9f1f-4df1-b06c-abe0d15f1af6" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="1dd33020-ce0a-4834-8fc3-fc92aacfd298" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+      <reference>System.Collections.dll</reference>
+      <reference>System.Windows.Forms.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+      <import>System.IO</import>
+    </imports>
+    <language>csharp</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="896ddde9-04f0-4dfa-8fc7-f1449f40249b" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>25c76f53-556e-4b58-951c-4499dabfbf44</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="3a8940af-6c66-4f62-b054-7a87ff9b84bb" name="Start" type="Start">
+    <subsheetid>25c76f53-556e-4b58-951c-4499dabfbf44</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>1d9d2bd3-32c5-4176-9062-5c0d5cf89867</onsuccess>
+  </stage>
+  <stage stageid="1d9d2bd3-32c5-4176-9062-5c0d5cf89867" name="End" type="End">
+    <subsheetid>25c76f53-556e-4b58-951c-4499dabfbf44</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="fe52171e-4949-4f1c-a97e-d1d40e50a84d" name="" type="Note">
+    <subsheetid>25c76f53-556e-4b58-951c-4499dabfbf44</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="4f876f2e-92cb-4a43-8046-ef63d924b4ca" name="" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="70751146-2266-4f38-a385-fa45b9fc8ff2" name="Get Customer Prediction" type="SubSheetInfo">
+    <subsheetid>86983bf2-36c9-4ec1-8a1d-a3d20ae578e6</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="b29de80e-878e-49ed-8a76-9abec0a28618" name="Start" type="Start">
+    <subsheetid>86983bf2-36c9-4ec1-8a1d-a3d20ae578e6</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <inputs>
+      <input type="collection" name="Input Data" stage="Input Data" />
+    </inputs>
+    <onsuccess>fb41a1a1-31d5-46fc-afd3-7b2a881f5f82</onsuccess>
+  </stage>
+  <stage stageid="43793995-340a-422a-8b8a-7090abc34433" name="End" type="End">
+    <subsheetid>86983bf2-36c9-4ec1-8a1d-a3d20ae578e6</subsheetid>
+    <loginhibit />
+    <display x="15" y="15" />
+    <outputs>
+      <output type="text" name="Prediction" stage="Prediction" />
+      <output type="text" name="Model Version" stage="Model Version" />
+      <output type="number" name="Confidence" stage="Confidence" />
+    </outputs>
+  </stage>
+  <stage stageid="fb41a1a1-31d5-46fc-afd3-7b2a881f5f82" name="Mock Prediction" type="Code">
+    <subsheetid>86983bf2-36c9-4ec1-8a1d-a3d20ae578e6</subsheetid>
+    <loginhibit />
+    <display x="15" y="-45" />
+    <inputs>
+      <input type="collection" name="Input Data" expr="[Input Data]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Prediction" stage="Prediction" />
+      <output type="number" name="Confidence" stage="Confidence" />
+    </outputs>
+    <onsuccess>43793995-340a-422a-8b8a-7090abc34433</onsuccess>
+    <code><![CDATA[Random r = new Random();
+System.Decimal v = r.Next(1, 100);
+Confidence = r.Next(1, 100);
+Prediction = "Yes";
+if(v < 50) {
+	Prediction = "No";
+}]]></code>
+  </stage>
+  <stage stageid="87191c5f-d432-4861-a41c-0c35b26f6c1a" name="Input Data" type="Collection">
+    <subsheetid>86983bf2-36c9-4ec1-8a1d-a3d20ae578e6</subsheetid>
+    <display x="135" y="-105" w="120" h="30" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="984f4f50-115e-4aed-8372-7f4816889dca" name="Prediction" type="Data">
+    <subsheetid>86983bf2-36c9-4ec1-8a1d-a3d20ae578e6</subsheetid>
+    <display x="90" y="15" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c1378682-69d1-4a4a-bdeb-48e49f66c098" name="Confidence" type="Data">
+    <subsheetid>86983bf2-36c9-4ec1-8a1d-a3d20ae578e6</subsheetid>
+    <display x="150" y="15" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="051951e4-ed34-49d0-b72b-8f52eac9b494" name="Model Version" type="Data">
+    <loginhibit />
+    <narrative>1.5.3</narrative>
+    <display x="135" y="-105" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">1.6.0</initialvalue>
+    <alwaysinit />
+  </stage>
+</process>
