@@ -1,4 +1,4 @@
-﻿<process name="Example 1 - Sentiment Analysis for User Review (Completed)" version="1.0" bpversion="7.1.2.3518" narrative="This completed example contains the External References and Namespace Imports. The .dll files should have already been copied into the BP installation folder location, which is (by default) C:\Program Files\Blue Prism Limited\Blue Prism Automate " byrefcollection="true" type="object" runmode="Exclusive" preferredid="7899b27f-29ad-4da2-8b52-b6a8eff1c3a9">
+﻿<process name="Example 1 - Sentiment Analysis for User Reviews (Completed)" version="1.0" bpversion="7.1.2.3518" narrative="This completed example contains the External References and Namespace Imports. The .dll files should have already been copied into the BP installation folder location, which is (by default) C:\Program Files\Blue Prism Limited\Blue Prism Automate " byrefcollection="true" type="object" runmode="Exclusive" preferredid="7899b27f-29ad-4da2-8b52-b6a8eff1c3a9">
   <appdef>
     <element name="Application Root">
       <id>2d9ce6c4-3969-4de7-ad39-61fb6df0f420</id>
