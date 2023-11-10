@@ -1,4 +1,4 @@
-﻿<process name="Ch4 - Example 2 - Sentiment Analysis for User Reviews (Completed)" version="1.0" bpversion="7.1.2.3518" narrative="" byrefcollection="true" type="object" runmode="Exclusive" preferredid="28de54bd-eb65-4423-bd3d-5f8baa196279">
+﻿<process name="Example 2 - Sentiment Analysis for User Reviews (Completed)" version="1.0" bpversion="7.1.2.3518" narrative="This is a completed example of Ch3, Example 2, which has fixed all of the compiler errors and is able to run a test ML.NET sentiment prediction" byrefcollection="true" type="object" runmode="Exclusive" preferredid="28de54bd-eb65-4423-bd3d-5f8baa196279">
   <appdef>
     <element name="Application Root">
       <id>ff948d90-b02a-48d9-8979-ef43fdc0e888</id>
@@ -26,9 +26,9 @@
   <subsheet subsheetid="7c05c557-d54f-4011-8c0e-9b8994121982" type="Normal" published="False">
     <name>Action 1</name>
     <view>
-      <camerax>0</camerax>
-      <cameray>0</cameray>
-      <zoom version="2">1.25</zoom>
+      <camerax>99</camerax>
+      <cameray>-42</cameray>
+      <zoom version="2">1.875</zoom>
     </view>
   </subsheet>
   <stage stageid="9e9046bd-cab6-40b4-80a5-75ac2dce901a" name="Start" type="Start">
@@ -170,7 +170,7 @@ StreamWriter writer;
 TextWriter oldOut = Console.Out;
 try
 {
-	ostrm = new FileStream("C:/Users/Public/ch4_output.txt", FileMode.OpenOrCreate, FileAccess.Write);
+	ostrm = new FileStream("C:/Users/Public/ch3_output.txt", FileMode.OpenOrCreate, FileAccess.Write);
 	writer = new StreamWriter(ostrm);
 }
 catch (Exception e)
@@ -232,7 +232,7 @@ ostrm.Close();]]></code>
     <loginhibit />
     <display x="150" y="-75" w="180" h="30" />
     <datatype>text</datatype>
-    <initialvalue xml:space="preserve">C:/Users/Public/ch4_SentimentModel.zip</initialvalue>
+    <initialvalue xml:space="preserve">C:/Users/Public/ch3_SentimentModel.zip</initialvalue>
     <private />
     <alwaysinit />
   </stage>
