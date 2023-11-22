@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bpr:release xmlns:bpr="http://www.blueprism.co.uk/product/release">
+    <bpr:name>1.0</bpr:name>
+    <bpr:release-notes />
+    <bpr:created>2023-11-22 13:40:06Z</bpr:created>
+    <bpr:package-id>19</bpr:package-id>
+    <bpr:package-name>Ch1 - Example 3 Web API Service</bpr:package-name>
+    <bpr:user-created-by>admin</bpr:user-created-by>
+    <bpr:contents count="2">
+        <credential id="6c7a362b-05d6-430e-aa8f-00c297dc7c34" name="GCP Cloud Vision" xmlns="http://www.blueprism.co.uk/product/credential">
+            <credentialType>OAuth2JwtBearerToken</credentialType>
+            <members />
+        </credential>
+        <webapiservice id="51a0b894-4746-4134-ac00-fa75fdba4429" name="Google Cloud Vision Batch Annotation Online" enabled="true" xmlns="http://www.blueprism.co.uk/product/webapiservice">
+            <configuration baseurl="https://vision.googleapis.com/" xmlns="">
+                <actions>
+                    <action id="6" name="Annotate Batch" enabled="true" enableRequestOutputParameter="false" disableSendingOfRequest="false">
+                        <description><![CDATA[]]></description>
+                        <request httpmethod="POST" urlpath="/v1/files:annotate">
+                            <headers></headers>
+                            <bodycontent type="1">
+                                <template><![CDATA[{
+  "requests": [[
+    {
+      "inputConfig": {
+        "content": "[content]",
+        "mimeType": "[mimeType]"
+      },
+      "features": [[
+        {
+          "type": "DOCUMENT_TEXT_DETECTION"
+        },
+        {
+          "type": "LABEL_DETECTION"
+        }
+      ],
+      "pages": [[
+        [pages]
+      ]
+    }
+  ]
+}
+]]></template>
+                            </bodycontent>
+                        </request>
+                        <parameters>
+                            <actionparameter name="mimeType" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[]]></description>
+                            </actionparameter>
+                            <actionparameter name="pages" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[]]></description>
+                            </actionparameter>
+                            <actionparameter name="content" expose="true" datatype="64">
+                                <initialvalue><![CDATA[]]></initialvalue>
+                                <description><![CDATA[]]></description>
+                            </actionparameter>
+                        </parameters>
+                        <outputparameters>
+                            <parameters>
+                                <customoutputparameter type="JsonPath" name="responses" description="" path="$.responses" datatype="collection" />
+                            </parameters>
+                            <code><![CDATA[]]></code>
+                        </outputparameters>
+                    </action>
+                </actions>
+                <commonparameters></commonparameters>
+                <commonheaders>
+                    <httpheader name="Content-Type" value="application/json; charset=utf-8" />
+                </commonheaders>
+                <commonauthentications>
+                    <authentication type="5" authorizationserver="https://accounts.google.com/o/oauth2/token">
+                        <jwtconfiguration algorithm="RS256" audience="https://accounts.google.com/o/oauth2/token" scope="https://www.googleapis.com/auth/cloud-vision" subject="" jwtexpiry="3600">
+                            <credential credentialname="GCP Cloud Vision" exposetoprocess="false" inputparametername="" />
+                        </jwtconfiguration>
+                    </authentication>
+                </commonauthentications>
+                <commoncode>
+                    <codeproperties code="" language="visualbasic">
+                        <namespaces>
+                            <namespace>System</namespace>
+                            <namespace>System.Drawing</namespace>
+                            <namespace>System.Data</namespace>
+                        </namespaces>
+                        <references>
+                            <reference>System.dll</reference>
+                            <reference>System.Data.dll</reference>
+                            <reference>System.Xml.dll</reference>
+                            <reference>System.Drawing.dll</reference>
+                        </references>
+                    </codeproperties>
+                </commoncode>
+                <configurationsettings>
+                    <configurationsettings requesttimeout="10" authserverrequesttimeout="10" />
+                </configurationsettings>
+            </configuration>
+        </webapiservice>
+    </bpr:contents>
+</bpr:release>
