@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <bpr:release xmlns:bpr="http://www.blueprism.co.uk/product/release">
-    <bpr:name>1.3</bpr:name>
+    <bpr:name>1.4</bpr:name>
     <bpr:release-notes />
-    <bpr:created>2023-11-24 03:27:30Z</bpr:created>
+    <bpr:created>2023-11-25 15:53:46Z</bpr:created>
     <bpr:package-id>4019</bpr:package-id>
     <bpr:package-name>Ch6 - Example 1 Three IA Session Variables</bpr:package-name>
     <bpr:user-created-by>admin</bpr:user-created-by>
