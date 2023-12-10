@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <bpr:release xmlns:bpr="http://www.blueprism.co.uk/product/release">
-    <bpr:name>1.3</bpr:name>
+    <bpr:name>1.4</bpr:name>
     <bpr:release-notes />
-    <bpr:created>2023-12-10 07:43:43Z</bpr:created>
+    <bpr:created>2023-12-10 08:05:20Z</bpr:created>
     <bpr:package-id>4024</bpr:package-id>
     <bpr:package-name>Ch12 - Example 1 Outage Prediction Model Deployment</bpr:package-name>
     <bpr:user-created-by>admin</bpr:user-created-by>
@@ -79,7 +79,7 @@ Confidence = r.Next(1, 100);
 Prediction = "Yes";
 if(v < 50) {
 	Prediction = "No";
-}]]></code></stage><stage stageid="87191c5f-d432-4861-a41c-0c35b26f6c1a" name="Input Data" type="Collection"><subsheetid>86983bf2-36c9-4ec1-8a1d-a3d20ae578e6</subsheetid><display x="135" y="-105" w="120" h="30" /><datatype>collection</datatype><private /><alwaysinit /></stage><stage stageid="984f4f50-115e-4aed-8372-7f4816889dca" name="Prediction" type="Data"><subsheetid>86983bf2-36c9-4ec1-8a1d-a3d20ae578e6</subsheetid><display x="90" y="15" /><datatype>text</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="c1378682-69d1-4a4a-bdeb-48e49f66c098" name="Confidence" type="Data"><subsheetid>86983bf2-36c9-4ec1-8a1d-a3d20ae578e6</subsheetid><display x="150" y="15" /><datatype>number</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="051951e4-ed34-49d0-b72b-8f52eac9b494" name="Model Version" type="Data"><loginhibit /><narrative>1.5.3</narrative><display x="135" y="-105" w="90" h="30" /><datatype>text</datatype><initialvalue xml:space="preserve">1.6.0</initialvalue><alwaysinit /></stage></process></object>
+}]]></code></stage><stage stageid="87191c5f-d432-4861-a41c-0c35b26f6c1a" name="Input Data" type="Collection"><subsheetid>86983bf2-36c9-4ec1-8a1d-a3d20ae578e6</subsheetid><display x="135" y="-105" w="120" h="30" /><datatype>collection</datatype><private /><alwaysinit /></stage><stage stageid="984f4f50-115e-4aed-8372-7f4816889dca" name="Prediction" type="Data"><subsheetid>86983bf2-36c9-4ec1-8a1d-a3d20ae578e6</subsheetid><display x="90" y="15" /><datatype>text</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="c1378682-69d1-4a4a-bdeb-48e49f66c098" name="Confidence" type="Data"><subsheetid>86983bf2-36c9-4ec1-8a1d-a3d20ae578e6</subsheetid><display x="150" y="15" /><datatype>number</datatype><initialvalue /><private /><alwaysinit /></stage><stage stageid="051951e4-ed34-49d0-b72b-8f52eac9b494" name="Model Version" type="Data"><loginhibit /><display x="135" y="-105" w="90" h="30" /><datatype>text</datatype><initialvalue xml:space="preserve">1.5.3</initialvalue><alwaysinit /></stage></process></object>
         <work-queue id="21" name="01 - Outage Prediction Notification" key-field="Region ID" xmlns="http://www.blueprism.co.uk/product/work-queue" />
         <work-queue id="22" name="02 - Customer Complaint Prediction" key-field="Customer ID" xmlns="http://www.blueprism.co.uk/product/work-queue" />
         <credential id="64edcf66-c5ce-4067-a691-1c38a90ed3cd" name="Ch12 CC Prediction Kill Switch" xmlns="http://www.blueprism.co.uk/product/credential">
