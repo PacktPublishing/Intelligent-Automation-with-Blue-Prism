@@ -1,13 +1,136 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <bpr:release xmlns:bpr="http://www.blueprism.co.uk/product/release">
-    <bpr:name>1.2</bpr:name>
+    <bpr:name>1.3</bpr:name>
     <bpr:release-notes />
-    <bpr:created>2023-11-10 08:15:08Z</bpr:created>
+    <bpr:created>2023-12-19 23:14:10Z</bpr:created>
     <bpr:package-id>2012</bpr:package-id>
     <bpr:package-name>Ch3 - Example 3 Sentiment Analysis for User Reviews (Refactored)</bpr:package-name>
     <bpr:user-created-by>admin</bpr:user-created-by>
-    <bpr:contents count="6">
-        <object id="104d778a-c54f-4a9b-8ddd-aba418123b79" name="Example 3 - Sentiment Analysis for User Reviews (Refactored)" xmlns="http://www.blueprism.co.uk/product/process"><process name="Example 3 - Sentiment Analysis for User Reviews (Refactored)" version="1.0" bpversion="7.1.2.3518" narrative="This is a refactored example which better follows Blue Prism's best practices around logging and reusability." byrefcollection="true" type="object" runmode="Exclusive"><appdef><element name="Application Root"><id>87f8bbf4-a950-4694-b82d-3230872f0176</id><type>Application</type><basetype>Application</basetype><datatype>unknown</datatype><diagnose>False</diagnose></element></appdef><view><camerax>-20</camerax><cameray>-126</cameray><zoom version="2">1.25</zoom></view><preconditions /><endpoint narrative="" /><subsheet subsheetid="d10d3181-21ec-46d9-91cd-f4125dfb4aa5" type="CleanUp" published="True"><name>Clean Up</name><view><camerax>-180</camerax><cameray>60</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="db603337-a795-4f41-9427-018f7597134d" type="Normal" published="True"><name>Load Training Data</name><view><camerax>0</camerax><cameray>0</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="5ae683c1-8236-4492-aafe-224e44fd5732" type="Normal" published="True"><name>Train Model</name><view><camerax>0</camerax><cameray>0</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="696f8861-47ee-49f9-b65f-ce9c3f4d50c0" type="Normal" published="True"><name>Get Model Metrics</name><view><camerax>0</camerax><cameray>126</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="1bd408e7-3b18-4011-8c8a-a35b7660cd1c" type="Normal" published="True"><name>Save Trained Model To File</name><view><camerax>0</camerax><cameray>0</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="c2551803-297a-4a4a-aa3a-265e97c58b1e" type="Normal" published="True"><name>Predict</name><view><camerax>0</camerax><cameray>82</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="f0de962a-b6d5-4b44-b0d1-c61bb64a3f8f" type="Normal" published="True"><name>Prediction Model Exists?</name><view><camerax>0</camerax><cameray>24</cameray><zoom version="2">1.25</zoom></view></subsheet><stage stageid="0dde5931-c691-4947-97aa-43a15c8f8f68" name="Start" type="Start"><loginhibit /><display x="15" y="-105" /><onsuccess>5079a55b-b3cc-4dc5-ab46-91729e45f49f</onsuccess></stage><stage stageid="5079a55b-b3cc-4dc5-ab46-91729e45f49f" name="End" type="End"><loginhibit /><display x="15" y="90" /></stage><stage stageid="9e6f6146-a0fb-4d42-8dc2-6fca0ab22039" name="Stage1" type="ProcessInfo"><display x="-180" y="-120" w="150" h="90" /><references><reference>System.dll</reference><reference>System.Data.dll</reference><reference>System.Xml.dll</reference><reference>System.Drawing.dll</reference><reference>Microsoft.ML.dll</reference><reference>Microsoft.ML.Data.dll</reference><reference>netstandard.dll</reference><reference>Microsoft.ML.DataView.dll</reference><reference>Microsoft.ML.Core.dll</reference><reference>Microsoft.ML.Transforms.dll</reference><reference>Microsoft.ML.StandardTrainers.dll</reference></references><imports><import>System</import><import>System.Drawing</import><import>System.Data</import><import>Microsoft.ML</import><import>Microsoft.ML.Data</import></imports><language>csharp</language><globalcode><![CDATA[]]></globalcode><code><![CDATA[static MLContext mlContext = new MLContext(); //used for training
+    <bpr:contents count="8">
+        <object id="7899b27f-29ad-4da2-8b52-b6a8eff1c3a9" name="Example 1 - Sentiment Analysis for User Reviews (Completed)" xmlns="http://www.blueprism.co.uk/product/process"><process name="Example 1 - Sentiment Analysis for User Reviews (Completed)" version="1.0" bpversion="7.2.1.7446" narrative="This completed example contains the External References and Namespace Imports. The .dll files should have already been copied into the BP installation folder location, which is (by default) C:\Program Files\Blue Prism Limited\Blue Prism Automate " byrefcollection="true" processrunningmessage="" disableversioning="false" type="object" runmode="Exclusive"><appdef><element name="Application Root"><id>2d9ce6c4-3969-4de7-ad39-61fb6df0f420</id><type>Application</type><basetype>Application</basetype><datatype>unknown</datatype><diagnose>False</diagnose></element></appdef><view><camerax>0</camerax><cameray>-63</cameray><zoom version="2">1.25</zoom></view><preconditions /><endpoint narrative="" /><subsheet subsheetid="fbdd9acc-6eeb-4fc4-94b8-299c3331dc4e" type="CleanUp" published="True"><name>Clean Up</name><view><camerax>0</camerax><cameray>0</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="85521401-138e-41f9-8377-0dfca09e6d99" type="Normal" published="False"><name>Action 1</name><view><camerax>0</camerax><cameray>0</cameray><zoom version="2">1.25</zoom></view></subsheet><stage stageid="98bb93b2-25c2-44a3-a475-e99a0a494c4e" name="Start" type="Start"><loginhibit /><display x="15" y="-105" /><onsuccess>eaac7639-37f4-424e-91bd-de71420b8aa9</onsuccess></stage><stage stageid="eaac7639-37f4-424e-91bd-de71420b8aa9" name="End" type="End"><loginhibit /><display x="15" y="90" /></stage><stage stageid="2240bf5d-d6b9-4975-bda2-9133b215a45f" name="Stage1" type="ProcessInfo"><display x="-180" y="-150" w="180" h="150" /><references><reference>System.dll</reference><reference>System.Data.dll</reference><reference>System.Xml.dll</reference><reference>System.Drawing.dll</reference><reference>Microsoft.ML.dll</reference><reference>Microsoft.ML.Data.dll</reference></references><imports><import>System</import><import>System.Drawing</import><import>System.Data</import><import>Microsoft.ML</import><import>Microsoft.ML.Data</import></imports><language>csharp</language><globalcode><![CDATA[]]></globalcode><code><![CDATA[]]></code></stage><stage stageid="3c51e512-d582-44a5-8932-cafeb977564f" name="Clean Up" type="SubSheetInfo"><subsheetid>fbdd9acc-6eeb-4fc4-94b8-299c3331dc4e</subsheetid><display x="-195" y="-105" w="150" h="90" /></stage><stage stageid="16405a78-d82b-4f5f-9d12-c6df27a8acca" name="Start" type="Start"><subsheetid>fbdd9acc-6eeb-4fc4-94b8-299c3331dc4e</subsheetid><loginhibit /><display x="15" y="-105" /><onsuccess>8bddef7c-1437-45d8-9010-11afcff5ed9b</onsuccess></stage><stage stageid="8bddef7c-1437-45d8-9010-11afcff5ed9b" name="End" type="End"><subsheetid>fbdd9acc-6eeb-4fc4-94b8-299c3331dc4e</subsheetid><loginhibit /><display x="15" y="90" /></stage><stage stageid="054141ab-fe2c-4281-970b-b6878999b3e5" name="Action 1" type="SubSheetInfo"><subsheetid>85521401-138e-41f9-8377-0dfca09e6d99</subsheetid><display x="-195" y="-105" w="150" h="90" /></stage><stage stageid="eb65d832-eb6c-4dd2-830b-247b3e7eda64" name="Start" type="Start"><subsheetid>85521401-138e-41f9-8377-0dfca09e6d99</subsheetid><loginhibit /><display x="15" y="-105" /><onsuccess>d2ade4f3-5f04-4d81-91bd-a9cc7e8ac6a6</onsuccess></stage><stage stageid="d2ade4f3-5f04-4d81-91bd-a9cc7e8ac6a6" name="End" type="End"><subsheetid>85521401-138e-41f9-8377-0dfca09e6d99</subsheetid><loginhibit /><display x="15" y="90" /></stage><stage stageid="884841ce-4d64-4e9d-917b-6c40a2e3232e" name="" type="Note"><subsheetid>fbdd9acc-6eeb-4fc4-94b8-299c3331dc4e</subsheetid><narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative><display x="-180" y="60" w="180" h="230" /></stage><stage stageid="aac42e3e-3e4b-4722-8303-0e68a52b5283" name="" type="Note"><narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative><display x="-180" y="60" w="180" h="230" /></stage><stage stageid="d072faeb-2cea-4e54-a89a-56d9aadf4108" name="Note1" type="Note"><loginhibit /><narrative>Double click the box to the left to open the Object properties</narrative><display x="15" y="-165" w="150" h="60" /><font family="Segoe UI" size="10" style="Bold" color="000000" /></stage></process></object>
+        <object id="28de54bd-eb65-4423-bd3d-5f8baa196279" name="Example 2 - Sentiment Analysis for User Reviews (Completed)" xmlns="http://www.blueprism.co.uk/product/process"><process name="Example 2 - Sentiment Analysis for User Reviews (Completed)" version="1.0" bpversion="7.2.1.7446" narrative="This is a completed example of Ch3, Example 2, which has fixed all of the compiler errors and is able to run a test ML.NET sentiment prediction" byrefcollection="true" processrunningmessage="" disableversioning="false" type="object" runmode="Exclusive"><appdef><element name="Application Root"><id>ff948d90-b02a-48d9-8979-ef43fdc0e888</id><type>Application</type><basetype>Application</basetype><datatype>unknown</datatype><diagnose>False</diagnose></element></appdef><view><camerax>0</camerax><cameray>0</cameray><zoom version="2">1.25</zoom></view><preconditions /><endpoint narrative="" /><subsheet subsheetid="f13d842b-4061-4fb2-b39f-3ccc8981f2c6" type="CleanUp" published="True"><name>Clean Up</name><view><camerax>0</camerax><cameray>0</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="7c05c557-d54f-4011-8c0e-9b8994121982" type="Normal" published="False"><name>Action 1</name><view><camerax>99</camerax><cameray>-42</cameray><zoom version="2">1.875</zoom></view></subsheet><stage stageid="9e9046bd-cab6-40b4-80a5-75ac2dce901a" name="Start" type="Start"><loginhibit /><display x="15" y="-105" /><onsuccess>6aa2f269-7f7a-4b02-82d8-260e5a5c1df9</onsuccess></stage><stage stageid="6aa2f269-7f7a-4b02-82d8-260e5a5c1df9" name="End" type="End"><loginhibit /><display x="15" y="90" /></stage><stage stageid="1eff274d-40c4-4f60-b9db-72ea6dc35d7d" name="Stage1" type="ProcessInfo"><display x="-195" y="-105" w="150" h="90" /><references><reference>System.dll</reference><reference>System.Data.dll</reference><reference>System.Xml.dll</reference><reference>System.Drawing.dll</reference><reference>Microsoft.ML.dll</reference><reference>Microsoft.ML.Data.dll</reference><reference>netstandard.dll</reference><reference>Microsoft.ML.Core.dll</reference><reference>Microsoft.ML.DataView.dll</reference><reference>Microsoft.ML.Transforms.dll</reference><reference>Microsoft.ML.StandardTrainers.dll</reference><reference>System.Windows.Forms.dll</reference></references><imports><import>System</import><import>System.Drawing</import><import>System.Data</import><import>Microsoft.ML</import><import>Microsoft.ML.Data</import><import>System.IO</import></imports><language>csharp</language><globalcode><![CDATA[]]></globalcode><code><![CDATA[public class SentimentIssue
+{
+	[LoadColumn(0)]
+	public bool Label { get; set; }
+	[LoadColumn(2)]
+	public string Text { get; set; }
+}
+public class SentimentPrediction
+{
+	// ColumnName attribute is used to change the column name from
+	// its default value, which is the name of the field.
+	[ColumnName("PredictedLabel")]
+	public bool Prediction { get; set; }
+
+	// No need to specify ColumnName attribute, because the field
+	// name "Probability" is the column name we want.
+	public float Probability { get; set; }
+
+	public float Score { get; set; }
+}
+
+public static void PrintBinaryClassificationMetrics(string name, CalibratedBinaryClassificationMetrics metrics)
+{
+	Console.WriteLine($"************************************************************");
+	Console.WriteLine($"*       Metrics for {name} binary classification model      ");
+	Console.WriteLine($"*-----------------------------------------------------------");
+	Console.WriteLine($"*       Accuracy: {metrics.Accuracy:P2}");
+	Console.WriteLine($"*       Area Under Curve:      {metrics.AreaUnderRocCurve:P2}");
+	Console.WriteLine($"*       Area under Precision recall Curve:  {metrics.AreaUnderPrecisionRecallCurve:P2}");
+	Console.WriteLine($"*       F1Score:  {metrics.F1Score:P2}");
+	Console.WriteLine($"*       LogLoss:  {metrics.LogLoss:#.##}");
+	Console.WriteLine($"*       LogLossReduction:  {metrics.LogLossReduction:#.##}");
+	Console.WriteLine($"*       PositivePrecision:  {metrics.PositivePrecision:#.##}");
+	Console.WriteLine($"*       PositiveRecall:  {metrics.PositiveRecall:#.##}");
+	Console.WriteLine($"*       NegativePrecision:  {metrics.NegativePrecision:#.##}");
+	Console.WriteLine($"*       NegativeRecall:  {metrics.NegativeRecall:P2}");
+	Console.WriteLine($"************************************************************");
+}]]></code></stage><stage stageid="23c75099-c67c-490c-9248-67b28b239e59" name="Clean Up" type="SubSheetInfo"><subsheetid>f13d842b-4061-4fb2-b39f-3ccc8981f2c6</subsheetid><display x="-195" y="-105" w="150" h="90" /></stage><stage stageid="f5607589-c26f-401c-a287-501f2699a14f" name="Start" type="Start"><subsheetid>f13d842b-4061-4fb2-b39f-3ccc8981f2c6</subsheetid><loginhibit /><display x="15" y="-105" /><onsuccess>cb3b174e-2e56-478c-bd5d-85ef845815c2</onsuccess></stage><stage stageid="cb3b174e-2e56-478c-bd5d-85ef845815c2" name="End" type="End"><subsheetid>f13d842b-4061-4fb2-b39f-3ccc8981f2c6</subsheetid><loginhibit /><display x="15" y="90" /></stage><stage stageid="ddad8f29-08ad-4f93-a9b7-9bd214081d11" name="Action 1" type="SubSheetInfo"><subsheetid>7c05c557-d54f-4011-8c0e-9b8994121982</subsheetid><display x="-195" y="-105" w="150" h="90" /></stage><stage stageid="7666e6b2-fad4-41e3-89e4-6392f2a53f0c" name="Start" type="Start"><subsheetid>7c05c557-d54f-4011-8c0e-9b8994121982</subsheetid><loginhibit /><display x="15" y="-105" /><onsuccess>d95e0814-0912-41f6-a446-82deff4a589f</onsuccess></stage><stage stageid="bbeca9da-b73a-48d6-a539-2503bea8a5f6" name="End" type="End"><subsheetid>7c05c557-d54f-4011-8c0e-9b8994121982</subsheetid><loginhibit /><display x="15" y="-15" /></stage><stage stageid="7fc6b96a-e9eb-47f0-b7eb-ed1c46873ba9" name="" type="Note"><subsheetid>f13d842b-4061-4fb2-b39f-3ccc8981f2c6</subsheetid><narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative><display x="-180" y="60" w="180" h="230" /></stage><stage stageid="25b42bf8-9882-490d-99ed-113c84f11306" name="" type="Note"><narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative><display x="-180" y="60" w="180" h="230" /></stage><stage stageid="d95e0814-0912-41f6-a446-82deff4a589f" name="Code1" type="Code"><subsheetid>7c05c557-d54f-4011-8c0e-9b8994121982</subsheetid><loginhibit /><display x="15" y="-60" /><inputs><input type="text" name="DataPath" expr="[DataPath]" /><input type="text" name="ModelPath" expr="[ModelPath]" /></inputs><onsuccess>bbeca9da-b73a-48d6-a539-2503bea8a5f6</onsuccess><code><![CDATA[FileStream ostrm;
+StreamWriter writer;
+TextWriter oldOut = Console.Out;
+try
+{
+	ostrm = new FileStream("C:/Users/Public/ch3_output.txt", FileMode.OpenOrCreate, FileAccess.Write);
+	writer = new StreamWriter(ostrm);
+}
+catch (Exception e)
+{
+	return;
+}
+Console.SetOut(writer);
+
+// Create MLContext to be shared across the model creation workflow objects 
+// Set a random seed for repeatable/deterministic results across multiple trainings.
+var mlContext = new MLContext(seed: 1);
+
+// STEP 1: Common data loading configuration
+IDataView dataView = mlContext.Data.LoadFromTextFile<SentimentIssue>(DataPath, hasHeader: true);
+
+Microsoft.ML.DataOperationsCatalog.TrainTestData trainTestSplit = mlContext.Data.TrainTestSplit(dataView, testFraction: 0.2);
+IDataView trainingData = trainTestSplit.TrainSet;
+IDataView testData = trainTestSplit.TestSet;
+
+// STEP 2: Common data process configuration with pipeline data transformations          
+var dataProcessPipeline = mlContext.Transforms.Text.FeaturizeText(outputColumnName: "Features", inputColumnName: nameof(SentimentIssue.Text));
+
+// STEP 3: Set the training algorithm, then create and config the modelBuilder                            
+var trainer = mlContext.BinaryClassification.Trainers.SdcaLogisticRegression(labelColumnName: "Label", featureColumnName: "Features");
+var trainingPipeline = dataProcessPipeline.Append(trainer);
+
+// STEP 4: Train the model fitting to the DataSet
+ITransformer trainedModel = trainingPipeline.Fit(trainingData);
+
+// STEP 5: Evaluate the model and show accuracy stats
+var predictions = trainedModel.Transform(testData);
+var metrics = mlContext.BinaryClassification.Evaluate(data: predictions, labelColumnName: "Label", scoreColumnName: "Score");
+
+PrintBinaryClassificationMetrics(trainer.ToString(), metrics);
+
+// STEP 6: Save/persist the trained model to a .ZIP file
+mlContext.Model.Save(trainedModel, trainingData.Schema, ModelPath);
+
+Console.WriteLine("The model is saved to {0}", ModelPath);
+
+// TRY IT: Make a single test prediction, loading the model from .ZIP file
+SentimentIssue sampleStatement = new SentimentIssue { Text = "I love this movie!" };
+
+// Create prediction engine related to the loaded trained model
+var predEngine = mlContext.Model.CreatePredictionEngine<SentimentIssue, SentimentPrediction>(trainedModel);
+
+// Score
+var resultprediction = predEngine.Predict(sampleStatement);
+
+Console.WriteLine($"=============== Single Prediction  ===============");
+Console.WriteLine($"Text: {sampleStatement.Text} | Prediction: {(Convert.ToBoolean(resultprediction.Prediction) ? "Toxic" : "Non Toxic")} sentiment | Probability of being toxic: {resultprediction.Probability} ");
+
+Console.SetOut(oldOut);
+writer.Close();
+ostrm.Close();]]></code></stage><stage stageid="0bc6a985-d043-472a-8b4f-e4418a90f938" name="ModelPath" type="Data"><subsheetid>7c05c557-d54f-4011-8c0e-9b8994121982</subsheetid><loginhibit /><display x="150" y="-75" w="180" h="30" /><datatype>text</datatype><initialvalue xml:space="preserve">C:/Users/Public/ch3_SentimentModel.zip</initialvalue><private /><alwaysinit /></stage><stage stageid="df74a78d-cfa4-4c2b-ba82-2f1ca84b3826" name="DataPath" type="Data"><subsheetid>7c05c557-d54f-4011-8c0e-9b8994121982</subsheetid><loginhibit /><display x="150" y="-105" w="180" h="30" /><datatype>text</datatype><initialvalue xml:space="preserve">C:/Users/Public/wikiDetoxAnnotated40kRows.tsv</initialvalue><private /><alwaysinit /></stage></process></object>
+        <object id="104d778a-c54f-4a9b-8ddd-aba418123b79" name="Example 3 - Sentiment Analysis for User Reviews (Refactored)" xmlns="http://www.blueprism.co.uk/product/process"><process name="Example 3 - Sentiment Analysis for User Reviews (Refactored)" version="1.0" bpversion="7.2.1.7446" narrative="This is a refactored example which better follows Blue Prism's best practices around logging and reusability." byrefcollection="true" processrunningmessage="" disableversioning="false" type="object" runmode="Exclusive"><appdef><element name="Application Root"><id>87f8bbf4-a950-4694-b82d-3230872f0176</id><type>Application</type><basetype>Application</basetype><datatype>unknown</datatype><diagnose>False</diagnose></element></appdef><view><camerax>-20</camerax><cameray>-126</cameray><zoom version="2">1.25</zoom></view><preconditions /><endpoint narrative="" /><subsheet subsheetid="d10d3181-21ec-46d9-91cd-f4125dfb4aa5" type="CleanUp" published="True"><name>Clean Up</name><view><camerax>-180</camerax><cameray>60</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="db603337-a795-4f41-9427-018f7597134d" type="Normal" published="True"><name>Load Training Data</name><view><camerax>0</camerax><cameray>0</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="5ae683c1-8236-4492-aafe-224e44fd5732" type="Normal" published="True"><name>Train Model</name><view><camerax>0</camerax><cameray>0</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="696f8861-47ee-49f9-b65f-ce9c3f4d50c0" type="Normal" published="True"><name>Get Model Metrics</name><view><camerax>0</camerax><cameray>126</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="1bd408e7-3b18-4011-8c8a-a35b7660cd1c" type="Normal" published="True"><name>Save Trained Model To File</name><view><camerax>0</camerax><cameray>0</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="c2551803-297a-4a4a-aa3a-265e97c58b1e" type="Normal" published="True"><name>Predict</name><view><camerax>0</camerax><cameray>82</cameray><zoom version="2">1.25</zoom></view></subsheet><subsheet subsheetid="f0de962a-b6d5-4b44-b0d1-c61bb64a3f8f" type="Normal" published="True"><name>Prediction Model Exists?</name><view><camerax>0</camerax><cameray>24</cameray><zoom version="2">1.25</zoom></view></subsheet><stage stageid="0dde5931-c691-4947-97aa-43a15c8f8f68" name="Start" type="Start"><loginhibit /><display x="15" y="-105" /><onsuccess>5079a55b-b3cc-4dc5-ab46-91729e45f49f</onsuccess></stage><stage stageid="5079a55b-b3cc-4dc5-ab46-91729e45f49f" name="End" type="End"><loginhibit /><display x="15" y="90" /></stage><stage stageid="9e6f6146-a0fb-4d42-8dc2-6fca0ab22039" name="Stage1" type="ProcessInfo"><display x="-180" y="-120" w="150" h="90" /><references><reference>System.dll</reference><reference>System.Data.dll</reference><reference>System.Xml.dll</reference><reference>System.Drawing.dll</reference><reference>Microsoft.ML.dll</reference><reference>Microsoft.ML.Data.dll</reference><reference>netstandard.dll</reference><reference>Microsoft.ML.DataView.dll</reference><reference>Microsoft.ML.Core.dll</reference><reference>Microsoft.ML.Transforms.dll</reference><reference>Microsoft.ML.StandardTrainers.dll</reference></references><imports><import>System</import><import>System.Drawing</import><import>System.Data</import><import>Microsoft.ML</import><import>Microsoft.ML.Data</import></imports><language>csharp</language><globalcode><![CDATA[]]></globalcode><code><![CDATA[static MLContext mlContext = new MLContext(); //used for training
 static ITransformer trainedModel;
 static IDataView trainingData; //the split for training data
 static IDataView testData; //the split for test data
@@ -172,6 +295,8 @@ try {
         </environment-variable>
         <object-group id="83de9f14-c0c8-4be1-b576-619de41ae294" name="Ch3" isDefaultGroup="False" xmlns="http://www.blueprism.co.uk/product/object-group">
             <members>
+                <object id="7899b27f-29ad-4da2-8b52-b6a8eff1c3a9" />
+                <object id="28de54bd-eb65-4423-bd3d-5f8baa196279" />
                 <object id="104d778a-c54f-4a9b-8ddd-aba418123b79" />
             </members>
         </object-group>
